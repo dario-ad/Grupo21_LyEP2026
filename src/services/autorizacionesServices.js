@@ -53,6 +53,9 @@ const usuarios = [
 
 const login = async (email, password, sector) => {
   const passwordHash = await hashPassword(password)
+  if (import.meta.env.DEV) {
+    console.log('Intento de login:', email, sector)
+  }
   return usuarios.find(
     usuario =>
       usuario.email === email &&
