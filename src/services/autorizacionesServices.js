@@ -7,6 +7,11 @@ const hashPassword = async (password) => {
   return hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
 }
 
+// Mitigación de seguridad: las contraseñas ya no están en texto plano, sino
+// hasheadas con SHA-256. Esto evita que queden expuestas al leer el código
+// fuente. Limitación conocida: la validación sigue haciéndose en el cliente;
+// una solución completa requiere un backend propio con hashing server-side
+// (ver hallazgo #1 del backlog priorizado del análisis técnico).
 const usuarios = [
   {
     email: 'antonella@gmail.com',
