@@ -17,8 +17,14 @@ const obtenerClientePorId = async (id) => {
     return respuesta.data;
 };
 
+const eliminarCliente = async (id) => {
+    const respuesta = await axios.delete(`${URL}/${id}`);
+    return respuesta.data;
+};
+
 export default {
     crearCliente,
     obtenerClientes,
-    obtenerClientePorId
+    obtenerClientePorId,
+    eliminarCliente
 };
