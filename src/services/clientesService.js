@@ -22,9 +22,15 @@ const eliminarCliente = async (id) => {
     return respuesta.data;
 };
 
+const actualizarCliente = async (id, cliente) => {
+    const respuesta = await axios.put(`${URL}/${id}`, cliente);
+    return respuesta.data;
+};
+
 export default {
     crearCliente,
     obtenerClientes,
     obtenerClientePorId,
-    eliminarCliente
+    eliminarCliente,
+    actualizarCliente
 };
